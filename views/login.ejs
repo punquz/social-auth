@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link
+          rel="stylesheet"
+          href="https://bootswatch.com/4/journal/bootstrap.min.css"
+        />
+        <style>
+            body{
+                font-family: arial;
+                margin: 0;
+            }
+            nav{
+                background: #ff5353;
+                padding: 20px 10px;
+            }
+            nav ul{
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 0;
+            }
+            nav li{
+                list-style-type: none;
+                display: inline-block;
+                margin: 0 10px 0 0;
+            }
+            nav a{
+                color: #fff;
+                font-size: 18px;
+                background: rgba(255,255,255,0.2);
+                text-decoration: none;
+                padding: 10px;
+                display: block;
+            }
+            main, header{
+                max-width: 960px;
+                margin: 30px auto;
+                padding: 0 10px;
+                color: #333;
+            }
+            .google-btn, .facebook-btn, .twitter-btn{
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px;
+                background: #ff5353;
+            }
+            .facebook-btn{
+                background: #3B5998;
+            }
+            .twitter-btn{
+                background: #00ACEE;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <% if (user) { %>
+                <li><a href="/auth/logout">Log out</a></li>
+                <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
+                <% } %>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1>Login using...</h1>
+        </header>
+        <main>
+            <span><a class="google-btn" href="/auth/google">Google+</a></span>
+            <span><a class="facebook-btn" href="/auth/facebook">Facebook</a></span>
+            <span><a class="twitter-btn" href="/auth/twitter">Twitter</a></span>
+        </main>
+        <div class="row mt-5">
+            <div class="col-md-6 m-auto">
+              <div class="card card-body">
+                <h1 class="text-center mb-3">
+                  <i class="fas fa-user-plus"></i> Register
+                </h1>
+                <form action="/auth/local-register" method="POST">
+                  <div class="form-group">
+                    <label for="name">Userame</label>
+                    <input
+                      type="name"
+                      id="name"
+                      name="name"
+                      class="form-control"
+                      placeholder="Enter Name"
+                      value="<%= typeof name != 'undefined' ? name : '' %>"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="Enter Email"
+                      value="<%= typeof email != 'undefined' ? email : '' %>"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-control"
+                      placeholder="Create Password"
+                      value="<%= typeof password != 'undefined' ? password : '' %>"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input
+                      type="password"
+                      id="password2"
+                      name="password2"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Register
+                  </button>
+                </form>
+                <p class="lead mt-4">Have An Account? <a href="/auth/local-login">Login</a></p>
+              </div>
+            </div>
+          </div>
+        <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    </body>
+</html>
