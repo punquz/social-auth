@@ -13,6 +13,7 @@ const keys = require('./config/keys');
 const app = express();
 
 // set view engine
+
 app.set('view engine', 'ejs');
 
 //bodyparser
@@ -47,5 +48,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('app now listening for requests on port 3000');
+    console.log('app now listening for on port 3000');
 });
