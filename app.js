@@ -13,6 +13,7 @@ const keys = require('./config/keys');
 const app = express();
 
 // set view engine
+
 app.set('view engine', 'ejs');
 
 //bodyparser
